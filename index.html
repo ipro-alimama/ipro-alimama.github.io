@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Identity-Preserving Image-to-Video Generation via Reward-Guided Optimization</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="title is-1 publication-title">Identity-Preserving Image-to-Video Generation <br> via Reward-Guided Optimization</h1>
+            <hr>
+            <h6>Liao Shen<sup>1,2*</sup>, 
+                Wentao Jiang<sup>1*</sup>, 
+                Yiran Zhu<sup>1</sup>, 
+                Tiezheng Ge<sup>1†</sup>, 
+                Zhiguo Cao<sup>2†</sup>, 
+                Bo Zheng<sup>1</sup>
+            </h6>
+            <p><sup>1</sup>Taobao & Tmall Group of Alibaba &nbsp;&nbsp; 
+               <sup>2</sup>Huazhong University of Science and Technology</p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2409.09605" role="button"  target="_blank"> <!-- 需要改 -->
+                    <i class="fa fa-file"></i> arXiv </a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/leoShen917/DreamMover" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i> Code </a> </p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/teaser.mp4" type="video/mp4">
+              </video>
+<!--             <img class="img-fluid" src="images/pipeline-v4.png"> -->
+              <!-- <br><br> -->
+          <p class="text-justify">  </p>
+          <p class="text-justify">We study the problem of generating intermediate images from image pairs with large motion while maintaining semantic consistency. Due to the large motion, the intermediate semantic information may be absent in input images. Existing methods either limit to small motion or focus on topologically similar objects, leading to artifacts and inconsistency in the interpolation results. To overcome this challenge, we dig into the pre-trained image diffusion models for their capabilities in semantic representations and generations, which ensures consistent expression of the absent intermediate semantic representations with the input. To this end, we propose DreamMover, a novel image interpolation framework with three main components: 1) A natural flow estimator based on the diffusion model that can implicitly reason about the semantic correspondence between two images. 2) To avoid loss of detailed information during fusion, our key insight is to fuse information in two parts, high-level space and low-level space. 3) To enhance the consistency between the generated images and input, we propose the self-attention concatenation and replacement approach. Lastly, we present a challenging benchmark dataset called InterpBench to evaluate the semantic consistency of generated results. Extensive experiments demonstrate the effectiveness of our method. Code will be released soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+   <!-- method -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Method</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/pipeline.png" style="width: 70%;">
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async 
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            </script>
+            
+          <p class="text-justify" style="margin-top: 2rem;"><strong style="font-weight: bold;">Overview of our method.</strong> (A) IPRO predicts \(\bar{x}_0\) from the noise input \(x_T\) , and the prediction
+is visualized through a frozen VAE decoder and scored by a face reward model with our
+facial scoring mechanism (C). This reward signal is used to update the trainable parts of the model,
+thereby steering the generation process to produce videos with consistent identity. (B) We further
+incorporate a KL-divergence regularization to alleviate reward hacking.
+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Experiments</h3>
+            <hr style="margin-top:0px">
+             <img class="img-fluid" src="images/results.png" style="width: 70%;">
+            <p class="text-justify" style="margin-top: 2rem;"><strong style="font-weight: bold;">Quantitative comparisons.</strong> Our method achieves more consistent face similarity than its
+baseline, without compromising its performance on other dimensions, including Subject Consistency
+(SC), Background Consistency (BC), Aesthetic Quality (AQ), Imaging Quality (IQ), Time
+Flickering (TF), Dynamic Degree (DD), and Motion Smoothness (MS).
+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+<!-- citing -->
+<!-- <div class="container">
+  <div class="row ">
+    <div class="col-12">
+        <h3>Citation</h3>
+        <hr style="margin-top:0px">
+            <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{shen2024dreammover,
+  title={DreamMover: Leveraging the Prior of Diffusion Models for Image Interpolation with Large Motion},
+  author={Shen, Liao and Liu, Tianqi and Sun, Huiqiang and Ye, Xinyi and Li, Baopu and Zhang, Jianming and Cao, Zhiguo},
+  journal={arXiv preprint arXiv:2409.09605},
+  year={2024}
+}
+</code></pre>
+        <hr>
+    </div>
+  </div>
+</div> -->
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
+  <div class="section" style="text-align:center; padding:0 0 20px 0">
+    <a href="https://clustrmaps.com/site/1c0az"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=nZv9K4lgbT_6bqyhcybzgXaeoDl_UU0mzFefY0U6bEY&cl=ffffff" /></a>
+</div>
+
+</body>
+</html>
